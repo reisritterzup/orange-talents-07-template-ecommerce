@@ -36,4 +36,8 @@ public class Categoria {
     public Categoria getCategoria() {
         return categoria;
     }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 }

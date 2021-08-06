@@ -3,6 +3,7 @@ package br.com.zup.desafiomercadolivre.dto;
 import br.com.zup.desafiomercadolivre.config.validacao.UniqueValue;
 import br.com.zup.desafiomercadolivre.model.Categoria;
 import br.com.zup.desafiomercadolivre.repository.CategoriaRepository;
+import io.jsonwebtoken.lang.Assert;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -27,8 +28,9 @@ public class CategoriaRequestDto {
     public Categoria toModel(CategoriaRepository categoriaRepository){
 
         Categoria categoria = null;
-        if (idCategoria != null)
+        if (idCategoria != null){
             categoria = categoriaRepository.getById(idCategoria);
+        }
         return new Categoria(nome, categoria);
     }
 

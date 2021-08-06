@@ -3,6 +3,7 @@ package br.com.zup.desafiomercadolivre.dto;
 import br.com.zup.desafiomercadolivre.config.validacao.UniqueValue;
 import br.com.zup.desafiomercadolivre.model.Usuario;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.validation.constraints.Email;
