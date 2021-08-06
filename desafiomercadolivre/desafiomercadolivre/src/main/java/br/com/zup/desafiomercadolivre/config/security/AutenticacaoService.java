@@ -1,7 +1,7 @@
 package br.com.zup.desafiomercadolivre.config.security;
 
 import br.com.zup.desafiomercadolivre.model.Usuario;
-import br.com.zup.desafiomercadolivre.repositoy.UsuarioRepository;
+import br.com.zup.desafiomercadolivre.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

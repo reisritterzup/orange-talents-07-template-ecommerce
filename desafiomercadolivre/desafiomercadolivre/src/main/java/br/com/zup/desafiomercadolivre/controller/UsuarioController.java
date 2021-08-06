@@ -2,7 +2,7 @@ package br.com.zup.desafiomercadolivre.controller;
 
 import br.com.zup.desafiomercadolivre.dto.UsuarioRequestDto;
 import br.com.zup.desafiomercadolivre.model.Usuario;
-import br.com.zup.desafiomercadolivre.repositoy.UsuarioRepository;
+import br.com.zup.desafiomercadolivre.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

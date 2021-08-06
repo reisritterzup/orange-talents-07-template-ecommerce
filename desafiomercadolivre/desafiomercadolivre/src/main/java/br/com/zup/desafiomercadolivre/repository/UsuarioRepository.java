@@ -1,4 +1,4 @@
-package br.com.zup.desafiomercadolivre.repositoy;
+package br.com.zup.desafiomercadolivre.repository;
 
 import br.com.zup.desafiomercadolivre.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
