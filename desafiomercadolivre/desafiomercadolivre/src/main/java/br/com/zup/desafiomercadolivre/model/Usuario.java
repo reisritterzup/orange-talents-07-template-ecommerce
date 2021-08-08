@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class Usuario implements UserDetails {
@@ -25,7 +26,11 @@ public class Usuario implements UserDetails {
     @Column(unique = true)
     private String email;
     private String senha;
+
+
+
     private LocalDateTime cadatro = LocalDateTime.now();
+
 
     public Long getId() {
         return id;

@@ -35,6 +35,7 @@ public class ProdutoResponseDto {
         }
 
         this.caracteristicasList = responseDto;
+        this.nomeUsuario = produto.getUsuario().getEmail();
     }
 
     private String nome;
@@ -43,6 +44,11 @@ public class ProdutoResponseDto {
     private List<CaracteristicasResponseDto> caracteristicasList;
     private String descricao;
     private String nomeCategoria;
+    private String nomeUsuario;
+
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
 
     public String getNome() {
         return nome;

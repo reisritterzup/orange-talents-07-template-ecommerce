@@ -34,6 +34,16 @@ public class Produto {
         this.categoria = categoria;
     }
 
+    public Produto(String nome, BigDecimal valor, int quantidade, List<Caracteristicas> caracteristicasList, String descricao, Categoria categoria, Usuario usuario) {
+        this.nome = nome;
+        this.valor = valor;
+        this.quantidade = quantidade;
+        this.caracteristicasList = caracteristicasList;
+        this.descricao = descricao;
+        this.categoria = categoria;
+        this.usuario = usuario;
+    }
+
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -62,7 +72,18 @@ public class Produto {
     @JoinColumn(nullable = false)
     private Categoria categoria;
 
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Usuario usuario;
+
+
+
     private LocalDateTime cadastro = LocalDateTime.now();
+
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
     public Long getId() {
         return id;
