@@ -100,6 +100,11 @@ public class Produto {
 
     private LocalDateTime cadastro = LocalDateTime.now();
 
+    public void abatarEstoque(int qtd){
+        this.quantidade = this.quantidade - qtd;
+    }
+
+
     public List<Opniao> getOpniaoList() {
         return opniaoList;
     }
@@ -151,4 +156,6 @@ public class Produto {
     public LocalDateTime getCadastro() {
         return cadastro;
     }
+
+
 }
