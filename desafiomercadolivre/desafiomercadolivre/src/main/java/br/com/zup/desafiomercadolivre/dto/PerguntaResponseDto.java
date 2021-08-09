@@ -19,6 +19,13 @@ public class PerguntaResponseDto {
         this.usuario = perguntaModel.getUsuario().getEmail();
     }
 
+    public PerguntaResponseDto(String titulo, String pergunta, String produto, String usuario) {
+        this.titulo = titulo;
+        this.pergunta = pergunta;
+        this.produto = produto;
+        this.usuario = usuario;
+    }
+
     private String titulo;
     private String pergunta;
     private String produto;

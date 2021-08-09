@@ -5,15 +5,13 @@ import br.com.zup.desafiomercadolivre.model.*;
 import br.com.zup.desafiomercadolivre.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/produto")
@@ -64,5 +62,16 @@ public class ProdutoController {
     public ResponseEntity<?> cadastrarPergunta(@RequestBody @Valid PerguntaRequestDto requestDto){
         Pergunta model = perguntaRepository.save(requestDto.toModel(usuarioRepository,produtoRepository));
         return ResponseEntity.ok(new PerguntaResponseDto(model));
+    }
+
+    @GetMapping("/detalhe/{idProduto}")
+    public ResponseEntity<?> buscarDetalheProduto(@PathVariable Long idProduto){
+        Optional<Produto> optionalProduto = produtoRepository.findById(idProduto);
+        Produto produto = new Produto();
+        if(optionalProduto.isPresent())
+            produto = optionalProduto.get();
+        return ResponseEntity.ok(new DetalheProdutoDto(produto,
+                produtoRepository.buscarMediaNotasProduto(idProduto),
+                produtoRepository.numeroTotalNotasProduto(idProduto)));
     }
 }

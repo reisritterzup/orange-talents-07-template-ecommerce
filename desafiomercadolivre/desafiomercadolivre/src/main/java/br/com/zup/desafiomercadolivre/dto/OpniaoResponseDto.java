@@ -14,6 +14,14 @@ public class OpniaoResponseDto {
         this.usuario = opniao.getUsuario().getEmail();
     }
 
+    public OpniaoResponseDto(int nota, String titulo, String descricao, String produto, String usuario) {
+        this.nota = nota;
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.produto = produto;
+        this.usuario = usuario;
+    }
+
     private int nota;
     private String titulo;
     private String descricao;

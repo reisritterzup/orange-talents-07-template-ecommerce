@@ -1,5 +1,6 @@
 package br.com.zup.desafiomercadolivre.model;
 
+import br.com.zup.desafiomercadolivre.dto.PerguntaResponseDto;
 import io.micrometer.core.lang.NonNull;
 
 import javax.persistence.*;
@@ -55,6 +56,10 @@ public class Pergunta {
 
     public Usuario getUsuario() {
         return usuario;
+    }
+
+    public PerguntaResponseDto toDto(){
+        return new PerguntaResponseDto(titulo,pergunta,produto.getNome(), usuario.getEmail());
     }
 
 }

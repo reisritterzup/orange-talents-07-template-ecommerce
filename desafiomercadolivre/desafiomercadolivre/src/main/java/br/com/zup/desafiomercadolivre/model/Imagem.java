@@ -1,5 +1,8 @@
 package br.com.zup.desafiomercadolivre.model;
 
+import br.com.zup.desafiomercadolivre.dto.ImagemRequestDto;
+import br.com.zup.desafiomercadolivre.dto.ImagemResponseDto;
+
 import javax.persistence.*;
 
 @Entity
@@ -30,5 +33,9 @@ public class Imagem {
 
     public Produto getProduto() {
         return produto;
+    }
+
+    public ImagemResponseDto toDto() {
+        return new ImagemResponseDto(caminhoImagem);
     }
 }

@@ -1,5 +1,6 @@
 package br.com.zup.desafiomercadolivre.model;
 
+import br.com.zup.desafiomercadolivre.dto.OpniaoResponseDto;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -70,5 +71,9 @@ public class Opniao {
 
     public Usuario getUsuario() {
         return usuario;
+    }
+
+    public OpniaoResponseDto toDto(){
+        return new OpniaoResponseDto(nota,titulo,descricao,produto.getNome(),usuario.getEmail());
     }
 }
