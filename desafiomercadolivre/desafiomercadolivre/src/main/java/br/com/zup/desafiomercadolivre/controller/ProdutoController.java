@@ -1,15 +1,11 @@
 package br.com.zup.desafiomercadolivre.controller;
 
-import br.com.zup.desafiomercadolivre.dto.ImagemRequestDto;
-import br.com.zup.desafiomercadolivre.dto.ProdutoRequestDto;
-import br.com.zup.desafiomercadolivre.dto.ProdutoResponseDto;
+import br.com.zup.desafiomercadolivre.dto.*;
 import br.com.zup.desafiomercadolivre.model.Caracteristicas;
 import br.com.zup.desafiomercadolivre.model.Imagem;
+import br.com.zup.desafiomercadolivre.model.Opniao;
 import br.com.zup.desafiomercadolivre.model.Produto;
-import br.com.zup.desafiomercadolivre.repository.CategoriaRepository;
-import br.com.zup.desafiomercadolivre.repository.ImagemRepository;
-import br.com.zup.desafiomercadolivre.repository.ProdutoRepository;
-import br.com.zup.desafiomercadolivre.repository.UsuarioRepository;
+import br.com.zup.desafiomercadolivre.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,6 +34,9 @@ public class ProdutoController {
     @Autowired
     private ImagemRepository imagemRepository;
 
+    @Autowired
+    private OpniaoRepository opniaoRepository;
+
     @PostMapping
     public ResponseEntity<?> cadastrarProduto(@RequestBody @Valid ProdutoRequestDto requestDto){
         Produto produto = produtoRepository.save(requestDto.toModel(categoriaRepository,usuarioRepository));
@@ -53,5 +52,11 @@ public class ProdutoController {
         requestDto.forEach(imagem ->
                 imagemRepository.save(imagem.toModel(produtoRepository)));
         return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/opniao")
+    public ResponseEntity<?> cadastrarOpniao(@RequestBody @Valid OpniaoRequestDto requestDto){
+        Opniao model = opniaoRepository.save(requestDto.toModel(usuarioRepository,produtoRepository));
+        return ResponseEntity.ok(new OpniaoResponseDto(model));
     }
 }
